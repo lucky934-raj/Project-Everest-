@@ -1,28 +1,16 @@
-void solve(){
-string s;cin>>s;
-int t1=0;
-int t2=0;
-for(int i=0;i<s.size();i++){
-    if(s[i]=='0'){
-        t1++;
-        if(t1%2==0){
-         cout<<3<<" "<<1<<endl;
-        }
-        else{
-           cout<<1<<" "<<1<<endl;  
-        }
-    }
-    else{
-          t2++;
-        if(t2%2!=0){
-         cout<<4<<" "<<3<<endl;
-        }
-        else{
-           cout<<4<<" "<<1<<endl;  
-        }
-    }
-}
- 
- 
- 
-}
+CF - Grid Game (Constructive)
+Key Idea:
+Don't simulate the board.
+Find a fixed repeating pattern.
+
+Invariant:
+Never reuse a position before its row/column is deleted.
+
+Pattern:
+Vertical (0) → Use one column, cycle through 4 rows → column clears.
+Horizontal (1) → Use one row, alternate between 2 positions → row clears.
+
+Recognition:
+If rows/columns automatically disappear, think "Can I force periodic clearing with a fixed pattern?"
+
+
